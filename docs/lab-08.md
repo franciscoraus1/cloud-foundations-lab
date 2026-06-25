@@ -27,6 +27,12 @@ Las tres comparten el mismo secret (Secrets Manager) y el mismo security group (
 - Servicios: `docker compose up -d` (incluye `localstack` y `postgres`)
 - `awslocal --version` responde · `psql --version` responde
 
+> **Si `psql` no responde** (Codespaces creados antes de este lab no lo tienen):
+> ```bash
+> sudo apt-get update && sudo apt-get install -y postgresql-client
+> ```
+> Para Codespaces nuevos ya está en `postCreateCommand` del devcontainer.
+
 ```bash
 # Verificar
 awslocal ec2 describe-vpcs --filters Name=tag:Name,Values=course-vpc \
